@@ -1,0 +1,92 @@
+div.modal.fade(id="feaseModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
+  div.modal-dialog(role="document")
+    div.modal-content
+      div.modal-header
+        h5.modal-title(id="exampleModalLabel") Feasibility Calculator
+        button.close(type="button" data-dismiss="modal" aria-label="Close")
+          span(aria-hidden="true") &times;
+      div.modal-body
+        form(method='post', action='/calcs/add/fease')
+          div.form-group
+            label.col-form-label Title (Company name)
+            input.form-control(type="text" name="title")
+          div.form-group
+            label.col-form-label(for="message-text") Notes
+            textarea.form-control(id="message-text" name="notes")
+          div.form-group
+            label.col-form-label 1. Is the workflow around the problem mapped out?
+              select.form-control(name="q1")
+                option Select an option
+                option Yes
+                option Sort of
+                option Not really
+                option Not at all
+          div.form-group
+            label.col-form-label 2. Are there are areas identified that outside the scope/authority of the problem owner?
+              select.form-control(name="q2")
+                option Select an option
+                option Yes, minimal
+                option Yes, substantial
+                option No
+                option Not sure
+          div.form-group
+            label.col-form-label 3. Description of the bad outcome to be avoided?
+              select.form-control(name="q3")
+                option Select an option
+                option Yes
+                option Sort of
+                option Not really
+                option Not at all  
+          div.form-group
+            label.col-form-label(for="message-text") 4. Has there been any previous attempts to solve the problem?
+              select.form-control(name="q4")
+                option Select an option
+                option Yes, with substantial learnings now applied
+                option Sort of
+                option No  
+          div.form-group
+            label.col-form-label(for="message-text") 5. Level of technical readiness?
+              select.form-control(name="q5")
+                option Select an option
+                option Existing GOTS options can solve the problem
+                option Existing COTS options can solve the problem
+                option Existing startup option may solve the problem...No previous government clients
+                option Existing startup option may solve the problem...No previous enterprise clients  
+                option Existing startup option may solve the problem...No public performance data 
+                option Exists in DARPA/I-ARPA projects...No contact with PM
+                option Exists in DARPA/I-ARPA projects...Contact with PM  
+                option Only exists in scientific literature...No contact with PI     
+                option Only exists in scientific literature...Contact with PI 
+          div.form-group
+            label.col-form-label(for="message-text") 6. Problem // Perception alignment?
+              select.form-control(name="q6")
+                option Select an option
+                option Type I // Type I
+                option Type I // Type II
+                option Type II // Type I
+                option Type II // Type II
+          div.form-group
+            label.col-form-label(for="message-text") 7. Orientation of the problem owner?
+              select.form-control(name="q7")
+                option Select an option
+                option Help me buy this tech
+                option Adapt the crap I have to use
+                option Just solve my problem
+          div.form-group
+            label.col-form-label(for="message-text") 8. Confidence level that all all information was presented and valid?
+              select.form-control(name="q8")
+                option Select an option
+                option 0%
+                option 10%
+                option 20%
+                option 30%
+                option 40%
+                option 50%
+                option 60%
+                option 70%
+                option 80%
+                option 90%
+                option 100%
+          div.modal-footer
+            button.btn.btn-secondary(type="button" data-dismiss="modal") Close
+            button.btn.btn-primary( type='submit') Calculate &amp; Save! 

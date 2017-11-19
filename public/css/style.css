@@ -1,0 +1,51 @@
+.alert-error {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+
+.alert-success_msg {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+
+.alert {
+  margin-top: 10px;
+}
+.card {
+  margin-top: 15px;
+  //max-width: 30%;
+}
+
+.pagethingy {
+  margin-top: 15px;
+}
+
+input {
+  max-width: 50vw;
+}
+.jumbotron {
+  margin-top: 10px;
+}
+a {
+  cursor:default;
+}
+.scores {
+  float: right;
+}
+.card,.card-text,.card-body,.card-header,.cardfooter {
+
+}
+/*
+.card-deck {
+  max-width: 80%;
+}
+*/
+.nocalc {
+  max-height: 150px;
+  max-width: 200px;
+}
+.jumbotron {
+  margin-top: 100px;
+}

@@ -1,0 +1,90 @@
+extends layout
+
+block content
+  if user
+    h1.text-center #{title}
+      ul.list-group
+        each article, i in articles
+          li.list-group-item 
+            a(href='/articles/' + article._id)= article.title
+            ul.list-group
+  //h1= JSON.stringify(places)
+  div.row.container
+    nav.col.my-auto
+      div.btn-group(role='group')
+        div.btn-group(role='group')
+            button.btn-info.btn.btn-lg.dropdown-toggle(type="button" id="sortbut" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") Sort
+            div.dropdown-menu(aria-labelledby="dropdownMenuButton")
+              a.dropdown-item(href="/sorts/newies") Date (Lastest First)
+              a.dropdown-item(href="/sorts/oldies") Date (Oldest First)
+              a.dropdown-item(href="/sorts/highfirst") Score (Highest First)
+              a.dropdown-item(href="/sorts/lowfirst") Score (Lowest First)
+              a.dropdown-item(href="/sorts/atoz") Name (A to Z)
+              a.dropdown-item(href="/sorts/ztoa") Name (Z to A)
+        button.btn.btn-dark= "Entries: " + numOfCalcs
+        div.btn-group(role='group')
+            button.btn-info.btn.btn-lg.dropdown-toggle(type="button" id="typesortbut" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") Type
+            div.dropdown-menu(aria-labelledby="dropdownMenuButton")
+              a.dropdown-item(href="/sorts/all") All
+              a.dropdown-item(href="/sorts/desire") Desirability
+              a.dropdown-item(href="/sorts/fease") Feasibility
+              a.dropdown-item(href="/sorts/via") Viability
+              a.dropdown-item(href="/sorts/inno") Innovation
+    nav.col.mx-auto(aria-label="Page navigation example" class="pagethingy")
+      ul.pagination.justify-content-center.pagination-lg
+        li.page-item
+          if page = 1
+            a.page-link.text-dark.disabled(href="#" tabindex="-1") Previous
+          else if page > 1
+            a.page-link.text-dark(href="#" tabindex="-1") Previous
+        li.page-item
+          a.page-link.text-dark(href="/") 1
+        li.page-item
+          a.page-link.text-dark(href="/") 2
+        li.page-item
+          a.page-link.text-dark(href="/") 3
+        li.page-item
+          a.page-link.text-dark(href="#") Next
+    div.col
+    br
+  div.card-columns
+    each calc, i in calcs
+      //if i <= 10
+      div.card
+        div.card-header
+          h5.card-title=  calc.title
+          h5.card-title= i
+          if calc.total >= 75
+            p.badge.badge-success= 'Score: ' +calc.total
+          else if calc.total <= 74 && calc.total >= 50 
+            p.badge.badge-warning= 'Score: ' +calc.total  
+          else if calc.total < 50
+            p.badge.badge-danger= 'Score: ' +calc.total
+          else if calc.total == undefined
+            p.badge.badge-secondary= 'Score: No score found'  
+          p= 'Type: ' + calc.whattype        
+        div.card-body
+          p.card-text= calc.notes
+          hr
+          div.btn-group(role="group" aria-label="Basic example")
+            a.btn.btn-primary.text-white(href='calcs/download/'+ calc._id data-id=calc._id) Download
+            a.btn.btn-secondary.text-white(href='/calcs/edit/'+ calc._id data-id=calc._id) Edit
+            a.btn.btn-dark.text-white.calcdelete(data-id=calc._id) Delete
+        div.card-footer
+          div.inline-block
+            h6.card-text=  'Created by ' +  calc.madeby
+  div.row.container
+    nav.col
+    nav.col.mx-auto(aria-label="Page navigation example" class="pagethingy")
+      ul.pagination.justify-content-center.pagination-lg
+        li.page-item
+          a.page-link.text-dark(href="#" tabindex="-1") Previous
+        li.page-item
+          a.page-link.text-dark(href="/") 1
+        li.page-item
+          a.page-link.text-dark(href="/") 2
+        li.page-item
+          a.page-link.text-dark(href="/") 3
+        li.page-item
+          a.page-link.text-dark(href="#") Next
+    div.col

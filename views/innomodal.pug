@@ -1,0 +1,162 @@
+div.modal.fade(id="innoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
+  div.modal-dialog(role="document")
+    div.modal-content
+      div.modal-header
+        h5.modal-title(id="exampleModalLabel") Innovation Calculator
+        button.close(type="button" data-dismiss="modal" aria-label="Close")
+          span(aria-hidden="true") &times;
+      div.modal-body
+        form(method='post', action='/calcs/add/inno')
+          h4 Problem Owner
+          div.form-group
+            label.col-form-label Title
+            input.form-control(type="text" name="title")
+          div.form-group
+            label.col-form-label Notes
+            textarea.form-control(id="message-text" name="notes")
+          div.form-group
+            label.col-form-label Problem Owner Title
+            input.form-control(type="text" name="probown")
+          div.form-group
+            label.col-form-label Problem Owner Roles &amp; Responsibilities
+            textarea.form-control(name="role")
+          div.form-group
+            label.col-form-label 1. Success directly related to job performance?
+              select.form-control(name="q1")
+                option Select an option
+                option Yes
+                option No
+          div.form-group
+            label.col-form-label 2. Time left in job? (Months)
+              select.form-control(name="q2")
+                option Select an option
+                option Less than 6 
+                option 6-12
+                option 12-24
+                option 24+
+          hr
+          h4 Senior Leader
+          div.form-group
+            label.col-form-label(for="message-text") 3. Identified?
+              select.form-control(name="q3")
+                option Select an option
+                option Yes
+                option No
+          div.form-group
+            label.col-form-label(for="message-text") 4. If identified, what is their title?
+            input.form-control(type="text" name="seniorleader")
+          div.form-group
+            label.col-form-label(for="message-text") 5. Success directly related to strategic priority?
+              select.form-control(name="q5")
+                option Select an option
+                option Yes
+                option No
+                option Unknown
+          div.form-group
+            label.col-form-label(for="message-text") 6. Time left in job?
+              select.form-control(name="q6")
+                option Select an option
+                option Less than 6 
+                option 6-12
+                option 12-24
+                option 24+
+          hr
+          h4 Problem
+          div.form-group
+            label.col-form-label 7. Desired outcome?
+            textarea.form-control(name="q7")
+          div.form-group
+            label.col-form-label 8. Beneficiary identified?
+              select.form-control(name="q8")
+                option Select an option
+                option Yes
+                option No
+          div.form-group
+            label.col-form-label 9. Beneficiary access?
+              select.form-control(name="q9")
+                option Select an option
+                option Yes
+                option Not directly
+                option No
+          div.form-group
+            label.col-form-label 10. Basic need?
+              select.form-control(name="q10")
+                option Select an option
+                option Yes
+                option No
+          div.form-group
+            label.col-form-label 11. Beneficiary identified?
+              select.form-control(name="q11")
+                option Select an option
+                option Yes
+                option No
+          div.form-group
+            label.col-form-label 12. Capture imagination?
+              select.form-control(name="q12")
+                option Select an option
+                option Yes
+                option No
+          div.form-group
+            label.col-form-label 13. Actually many problems?
+              select.form-control(name="q13")
+                option Select an option
+                option Yes
+                option No
+          div.form-group
+            label.col-form-label 14. Research project?
+              select.form-control(name="q14")
+                option Select an option
+                option Yes
+                option No
+          div.form-group
+            label.col-form-label 15. Similar efforts?
+              select.form-control(name="q15")
+                option Select an option
+                option Yes, competing
+                option Yes, collaborating
+                option No
+          hr
+          h4 Viability
+          div.form-group
+            label.col-form-label 16. Funding available?
+              select.form-control(name="q16")
+                option Select an option
+                option Yes
+                option No
+                option Not directly, new partner
+                option Not directly, old partner
+          div.form-group
+            label.col-form-label 17. Contract available?
+              select.form-control(name="q17")
+                option Select an option
+                option Yes
+                option No
+                option Not directly, new partner
+                option Not directly, old partner
+          div.form-group
+            label.col-form-label 18. All required authorities?
+              select.form-control(name="q18")
+                option Select an option
+                option Yes
+                option No
+                option Not directly, new partner
+                option Not directly, old partner
+          div.form-group
+            label.col-form-label 19. Ability to run tests?
+              select.form-control(name="q19")
+                option Select an option
+                option Yes
+                option No
+                option Not directly, new partner
+                option Not directly, old partner
+          div.form-group
+            label.col-form-label 20. Ability to deploy successful tests?
+              select.form-control(name="q20")
+                option Select an option
+                option Yes
+                option No
+                option Not directly, new partner
+                option Not directly, old partner
+          div.modal-footer
+            button.btn.btn-secondary(type="button" data-dismiss="modal") Close
+            button.btn.btn-primary( type='submit') Calculate &amp; Save!

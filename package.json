@@ -1,0 +1,33 @@
+{
+  "name": "BMNTpmProject",
+  "version": "1.0.0",
+  "description": "Simple Knowledge Base",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app"
+  },
+  "author": "Jordan Jackson",
+  "license": "ISC",
+  "dependencies": {
+    "assert": "^1.4.1",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.2",
+    "connect-flash": "^0.1.1",
+    "express": "^4.16.2",
+    "express-messages": "^1.0.1",
+    "express-session": "^1.15.6",
+    "express-validator": "^4.2.1",
+    "fs": "0.0.1-security",
+    "generate-docx": "^1.3.0",
+    "gridfs-stream": "^1.1.1",
+    "masonry-layout": "^4.2.0",
+    "mongodb": "^2.2.33",
+    "mongoose": "^4.12.2",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "pug": "^2.0.0-rc.4"
+  },
+  "engines": {
+    "node": "8.2.1"
+  }
+}

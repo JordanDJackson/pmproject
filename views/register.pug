@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  div.jumbotron 
+    h1 Register
+    form(method='post', action='/users/register')
+      div.form-group
+        label Name (Name you want displayed)
+        input.form-control(type="text" name='name'  placeholder="Enter name")
+      div.form-group
+        label Email address
+        input.form-control(type="text" name='email' placeholder="Enter email")
+      div.form-group
+        label Username
+        input.form-control(type="text" name='username' placeholder="Enter username")          
+      div.form-group
+        label Password
+        input.form-control(type="password"  name='password'  placeholder="Password")
+      div.form-group
+        label Password
+        input.form-control(type="password"   name='password2' placeholder="Confirm password")
+      input.btn.btn-primary(type='submit',value='Submit')

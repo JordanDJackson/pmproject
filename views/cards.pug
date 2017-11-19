@@ -1,0 +1,104 @@
+div.card-deck.container
+  each calc, i in calcs
+    if i <= 2
+      div.col-md-4
+        div.card
+          div.card-header
+            h5.card-title=  calc.title
+            if calc.total >= 75
+              p.badge.badge-success= 'Score: ' +calc.total
+            else if calc.total <= 74 && calc.total >= 50 
+              p.badge.badge-warning= 'Score: ' +calc.total  
+            else if calc.total < 50
+              p.badge.badge-danger= 'Score: ' +calc.total
+            else if calc.total == undefined
+              p.badge.badge-secondary= 'Score: No score found'  
+            p= 'Type: ' + calc.whattype        
+          div.card-body
+            p.card-text= calc.notes
+            hr
+            div.btn-group(role="group" aria-label="Basic example")
+              a.btn.btn-primary.text-white(href='http://localhost:3001/calcs/download/'+ calc._id data-id=calc._id) Download
+              a.btn.btn-secondary.text-white(href='http://localhost:3001/calcs/download/'+ calc._id data-id=calc._id) Edit
+              a.btn.btn-dark.text-white.calcdelete(data-id=calc._id) Delete
+          div.card-footer
+            div.inline-block
+              h6.card-text=  'Created by ' +  calc.madeby
+div.card-deck.container
+  each calc, i in calcs
+    if i <= 5 && i > 2
+      div.col-md-4
+        div.card
+          div.card-header
+            h5.card-title=  calc.title
+            if calc.total >= 75
+              p.badge.badge-success= 'Score: ' +calc.total
+            else if calc.total <= 74 && calc.total >= 50 
+              p.badge.badge-warning= 'Score: ' +calc.total  
+            else if calc.total < 50
+              p.badge.badge-danger= 'Score: ' +calc.total
+            else if calc.total == undefined
+              p.badge.badge-secondary= 'Score: No score found'  
+            p= 'Type: ' + calc.whattype        
+          div.card-body
+            p.card-text= calc.notes
+            hr
+            div.btn-group(role="group" aria-label="Basic example")
+              a.btn.btn-primary.text-white(href='http://localhost:3001/calcs/download/'+ calc._id data-id=calc._id) Download
+              a.btn.btn-secondary.text-white(href='http://localhost:3001/calcs/download/'+ calc._id data-id=calc._id) Edit
+              a.btn.btn-dark.text-white.calcdelete(data-id=calc._id) Delete
+          div.card-footer
+            div.inline-block
+              h6.card-text=  'Created by ' +  calc.madeby                    
+div.card-deck.container
+  each calc, i in calcs
+    if i <= 8 && i > 5
+      div.col-md-4
+        div.card
+          div.card-header
+            h5.card-title=  calc.title
+            if calc.total >= 75
+              p.badge.badge-success= 'Score: ' +calc.total
+            else if calc.total <= 74 && calc.total >= 50 
+              p.badge.badge-warning= 'Score: ' +calc.total  
+            else if calc.total < 50
+              p.badge.badge-danger= 'Score: ' +calc.total
+            else if calc.total == undefined
+              p.badge.badge-secondary= 'Score: No score found'  
+            p= 'Type: ' + calc.whattype        
+          div.card-body
+            p.card-text= calc.notes
+            hr
+            div.btn-group(role="group" aria-label="Basic example")
+              a.btn.btn-primary.text-white(href='http://localhost:3001/calcs/download/'+ calc._id data-id=calc._id) Download
+              a.btn.btn-secondary.text-white(href='http://localhost:3001/calcs/download/'+ calc._id data-id=calc._id) Edit
+              a.btn.btn-dark.text-white.calcdelete(data-id=calc._id) Delete
+          div.card-footer
+            div.inline-block
+              h6.card-text=  'Created by ' +  calc.madeby
+div.card-deck.container
+  each calc, i in calcs
+    if i <= 11 && i > 8
+      div.col-md-4
+        div.card
+          div.card-header
+            h5.card-title=  calc.title
+            if calc.total >= 75
+              p.badge.badge-success= 'Score: ' +calc.total
+            else if calc.total <= 74 && calc.total >= 50 
+              p.badge.badge-warning= 'Score: ' +calc.total  
+            else if calc.total < 50
+              p.badge.badge-danger= 'Score: ' +calc.total
+            else if calc.total == undefined
+              p.badge.badge-secondary= 'Score: No score found'  
+            p= 'Type: ' + calc.whattype        
+          div.card-body
+            p.card-text= calc.notes
+            hr
+            div.btn-group(role="group" aria-label="Basic example")
+              a.btn.btn-primary.text-white(href='http://localhost:3001/calcs/download/'+ calc._id data-id=calc._id) Download
+              a.btn.btn-secondary.text-white(href='http://localhost:3001/calcs/download/'+ calc._id data-id=calc._id) Edit
+              a.btn.btn-dark.text-white.calcdelete(data-id=calc._id) Delete
+          div.card-footer
+            div.inline-block
+              h6.card-text=  'Created by ' +  calc.madeby
