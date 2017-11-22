@@ -53,6 +53,7 @@ router.post('/add/fease', function (req, res) { // ensureAuthenticated,
     calc.q6 = req.body.q6
     calc.q7 = req.body.q7
     calc.q8 = req.body.q8
+    calc.madeby = user.username
     calc.whattype = 'Feasibility'
     calc.total = fease(req.body.q1,req.body.q2,req.body.q3,req.body.q4,req.body.q5,req.body.q6,req.body.q8);
     const options = {
