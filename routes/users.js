@@ -75,14 +75,14 @@ router.post('/login', function (req, res, next) {
     failureRedirect: '/users/login',
     failureFlash: true
   })(req, res, next)
-  req.flash('success', 'Logged In')
+  //req.flash('success', 'Logged In')
 })
 
 // logout
 router.get('/logout', function (req, res) {
   req.logout()
   req.flash('success', 'You are logged out')
-  res.redirect('http://localhost:3001/users/login')
+  res.redirect('/users/login')
 })
 
 // export the router to be used in any file
