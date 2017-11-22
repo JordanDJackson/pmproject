@@ -150,6 +150,6 @@ app.use('/users', users)
 app.use('/calcs', calcs)
 app.use('/sorts', sorters)
 // START APP ON PORT 3001
-app.listen(3002, function () {
-  console.log('Server started on port 3001')
+app.listen(80, function () {
+  console.log('Server started on port 80.....')
 })
