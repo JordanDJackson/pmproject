@@ -56,7 +56,8 @@ block content
           li.page-item
             a.page-link.text-dark(href="#") Next
       div.col
-  div.jumbotron
-    div.container
-      h1.display-3.text-center Welcome
-      p.lead.text-center Please login to access
+  if !user
+    div.jumbotron
+      div.container
+        h1.display-3.text-center Welcome
+        p.lead.text-center Please login to access
