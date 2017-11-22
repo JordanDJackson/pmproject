@@ -120,6 +120,7 @@ app.get('/', function (req, res) {
                       calcs: calcs,
                       numOfCalcs: totalCalcsInDB
                     })
+                    res.end();
                   }
 
                 });
