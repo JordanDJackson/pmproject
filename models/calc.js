@@ -86,6 +86,9 @@ let calcSchema = mongoose.Schema({
   },
   whattype: {
     type: String
+  },
+  madeby: {
+    type: String
   }
 })
 
