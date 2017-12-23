@@ -57,9 +57,9 @@ router.post('/add/fease', function (req, res) { // ensureAuthenticated,
     calc.whattype = 'Feasibility';
     var algoRes = fease(req.body.q1,req.body.q2,req.body.q3,req.body.q4,req.body.q5,req.body.q6,req.body.q8);
     calc.total = algoRes[0];
-
+    console.log(algoRes[0]);
     calc.topfaults = algoRes[1];
-
+    console.log(algoRes[1]);
     const options = {
       template: {
         filePath: './docxtempt/fease.docx',
