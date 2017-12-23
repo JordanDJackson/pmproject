@@ -14,6 +14,10 @@ $(document).ready(function () {
       }
     })
   })
+  // for popper js
+  $(function () {
+    $('[data-toggle="popover"]').popover();
+  })
   $('.calcdelete').on('click', function (e) {
     $target = $(e.target)
     const id = $target.attr('data-id')

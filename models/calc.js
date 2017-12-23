@@ -89,6 +89,9 @@ let calcSchema = mongoose.Schema({
   },
   madeby: {
     type: String
+  },
+  topfaults: {
+    type: Array
   }
 })
 

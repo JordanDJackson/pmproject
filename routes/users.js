@@ -53,7 +53,8 @@ router.post('/register', function (req, res) {
               name: name,
               email: email,
               username: username,
-              password: password
+              password: password,
+              sortPref: 'default'
             })
           // bcrypt hashing its the password with random salt
             bcrypt.genSalt(10, function (err, salt) {

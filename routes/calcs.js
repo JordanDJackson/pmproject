@@ -54,8 +54,12 @@ router.post('/add/fease', function (req, res) { // ensureAuthenticated,
     calc.q7 = req.body.q7
     calc.q8 = req.body.q8
     calc.madeby = req.user.username
-    calc.whattype = 'Feasibility'
-    calc.total = fease(req.body.q1,req.body.q2,req.body.q3,req.body.q4,req.body.q5,req.body.q6,req.body.q8);
+    calc.whattype = 'Feasibility';
+    var algoRes = fease(req.body.q1,req.body.q2,req.body.q3,req.body.q4,req.body.q5,req.body.q6,req.body.q8);
+    calc.total = algoRes[0];
+
+    calc.topfaults = algoRes[1];
+
     const options = {
       template: {
         filePath: './docxtempt/fease.docx',
@@ -97,11 +101,11 @@ router.post('/add/fease', function (req, res) { // ensureAuthenticated,
             */
         }
     })
-    calc.save(function (err) {
+  calc.save(function (err) {
       if (err) {
         console.log(err)
       } else {
-        console.log('Saved to Mongo!')
+        console.log('Saved to Mongo!');
         req.flash('success', 'Calculation Added')
         res.redirect('/')
       }
