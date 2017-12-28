@@ -11,7 +11,7 @@ block content
                 a.dropdown-item(href="/sorts/newies") Date (Lastest First)
                 a.dropdown-item(href="/sorts/oldies") Date (Oldest First)
                 a.dropdown-item(href="/sorts/highfirst") Score (Highest First)
-                a.dropdown-item(href="/sorts/lowfirst") Score (Lowest First)
+                a.dropdown-item(href="/sorts/lowfirst" id="sortlowfirst") Score (Lowest First)
                 a.dropdown-item(href="/sorts/atoz") Name (A to Z)
                 a.dropdown-item(href="/sorts/ztoa") Name (Z to A)
           button.btn.btn-dark= "Entries: " + numOfCalcs
@@ -39,6 +39,7 @@ block content
           li.page-item
             a.page-link.text-dark(href="#") Next
       div.col
+        h1 Hello
       br
     include cards.pug    
     div.row.container

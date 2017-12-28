@@ -16,7 +16,7 @@ $(document).ready(function () {
   })
   // for popper js
   $(function () {
-    $('[data-toggle="popover"]').popover();
+    $('[data-toggle="popover"]').popover({html:true});
   })
   $('.calcdelete').on('click', function (e) {
     $target = $(e.target)
@@ -42,4 +42,36 @@ $(document).ready(function () {
     alert( "Handler for .click() called." );
   });
 */
+// sorter ajax testing grounds
+
+$('#sortlowfirst').on('click', function (/*e*/) {
+  $target = $(e.target)
+  const id = $target.attr('data-id')
+  $.ajax({
+    type: 'POST',
+    url: '/sorts/lowfirst',
+    success: function (response) {
+      alert('Sort Preference Updated')
+      window.location.href = '/'
+    },
+    error: function (err) {
+      console.log(err)
+    }
+  })
+})
+
+// end testing grounds
+
+
+
+
+
+
+
+
+
+
+
+
+
 })

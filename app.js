@@ -39,9 +39,11 @@ const app = express()
 // create bucket for storing files with gridfs
 
 // bring in models,articles,users, whatever you want
-let Article = require('./models/article')
-let Calc = require('./models/calc')
-let Sort = require('./models/sorter')
+let Article = require('./models/article');
+let Calc = require('./models/calc');
+let Sort = require('./models/sorter');
+let User = require('./models/user');
+
 // set views folder to 'views'
 app.set('views', path.join(__dirname, 'views'))
 // set view engine to whatever you want
@@ -101,30 +103,33 @@ var numOfCards = 10;
 
 // get request for app home page
 app.get('/', function (req, res) {
-
-            var totalCalcsInDB = 0;
+    var totalCalcsInDB = 0;
 
             Calc.find({}, function(err,totalCalcs){
               if(err) throw err;
               totalCalcsInDB = totalCalcs.length;
             //})
-              Calc.find({}).
-                limit(numOfCards).
-                sort({total: -1}).
-                exec(function (err, calcs) {
-                  if (err) {
-                    console.log(err)
-                  } else {
-                    res.render('index', {
-                      title: 'Calculations',
-                      calcs: calcs,
-                      numOfCalcs: totalCalcsInDB
-                    })
-                  }
 
-                });
 
-})
+                    Calc.find({}).
+                      limit(numOfCards).
+                      sort({title:-1}).
+                      exec(function (err, calcs) {
+                        if (err) {
+                          console.log(err)
+                        } else {
+                          res.render('index', {
+                            title: 'Calculations',
+                            calcs: calcs,
+                            numOfCalcs: totalCalcsInDB
+                          })
+                        }
+
+                      });
+
+
+
+              })
 
   /*
   Calc.find({}, function (err, calcs) {

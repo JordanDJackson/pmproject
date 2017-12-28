@@ -23,6 +23,20 @@ router.get('/highfirst', function (req, res) {
     });
 })
 router.get('/lowfirst', function (req, res) {
+
+  console.log("This is where the pref should be updated!!");
+  //console.log(res.locals.user);
+  //console.log(req.user);
+    let query = {};
+    query["_id"] = req.user["_id"];
+    User.findOneAndUpdate(query, {$set: {sortPref: "total"}},{new: true}, function(err, doc){
+      if(err){
+        throw err;
+      }
+      console.log(doc);
+    })
+    res.redirect('/');
+  /*
   Calc.find({}).
     limit(12).
     sort({total: 1}).
@@ -37,6 +51,7 @@ router.get('/lowfirst', function (req, res) {
       }
 
     });
+    */
 })
 
 router.get('/atoz', function (req, res) {

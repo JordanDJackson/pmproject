@@ -74,6 +74,21 @@ div.card-deck.container
               p.badge.badge-secondary= 'Score: No score found'  
             p= 'Type: ' + calc.whattype        
           div.card-body
+            if calc.topfaults.length >= 1
+              div.row
+                div.col-md-2
+                if calc.topfaults.length >= 3
+                  - var topdefs = "<ol> <li>" + calc.topfaults[0] + "</li><li>" + calc.topfaults[1] + "</li><li>" + calc.topfaults[2] + "</li></ol>"
+                else if calc.topfaults.length == 2
+                  - var topdefs = "<ol> <li>" + calc.topfaults[0] + "</li><li>" + calc.topfaults[1] + "</li></ol>"
+                else if calc.topfaults.length == 1
+                  - var topdefs = "<ol> <li>" + calc.topfaults[0] + "</li></ol>"
+                button(type="button" class="btn btn-sm btn-danger col-md-8 center-block" data-placement="bottom" data-trigger="focus" data-toggle="popover" title="Top Deficiencies" data-content=topdefs) See Top Deficiencies
+                div.col-md-2
+            
+            
+            
+            
             p.card-text= calc.notes
             hr
             div.btn-group(role="group" aria-label="Basic example")
