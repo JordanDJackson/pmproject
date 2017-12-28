@@ -27,7 +27,7 @@ $(document).ready(function () {
       type: 'DELETE',
       url: '/calcs/' + id,
       success: function (response) {
-        window.location.href = '/'
+        window.location.href = '/users/home'
       },
       error: function (err) {
         console.log(err)
@@ -43,16 +43,12 @@ $(document).ready(function () {
   });
 */
 // sorter ajax testing grounds
-
-$('#sortlowfirst').on('click', function (/*e*/) {
-  $target = $(e.target)
-  const id = $target.attr('data-id')
+$('#sortlowfirst').on('click', function () {
   $.ajax({
-    type: 'POST',
+    type: 'GET',
     url: '/sorts/lowfirst',
     success: function (response) {
-      alert('Sort Preference Updated')
-      window.location.href = '/'
+      window.location.href = '/users/home'
     },
     error: function (err) {
       console.log(err)
@@ -61,13 +57,62 @@ $('#sortlowfirst').on('click', function (/*e*/) {
 })
 
 // end testing grounds
+$('#sorthighfirst').on('click', function () {
+  $.ajax({
+    type: 'GET',
+    url: '/sorts/highfirst',
+    success: function (response) {
+      window.location.href = '/users/home'
+    },
+    error: function (err) {
+      console.log(err)
+    }
+  })
+})
 
 
+$('#sorta2z').on('click', function () {
+  $.ajax({
+    type: 'GET',
+    url: '/sorts/atoz',
+    success: function (response) {
+      window.location.href = '/users/home'
+    },
+    error: function (err) {
+      console.log(err)
+    }
+  })
+})
+$('#sortz2a').on('click', function () {
+  $.ajax({
+    type: 'GET',
+    url: '/sorts/ztoa',
+    success: function (response) {
+      window.location.href = '/users/home'
+    },
+    error: function (err) {
+      console.log(err)
+    }
+  })
+})
 
+$('#searchbyco').keyup(function(e) {
+    var input = $("#searchbyco").val();
+    if (e.which == 13) {
+        $.ajax({
+          type: 'GET',
+          url: '/users/home/' + input,
+          success: function (response) {
+            window.location.href = '/users/home/' + input
+          },
+          error: function (err) {
+            console.log(err)
+          }
+        })
+        return false;
+    }
 
-
-
-
+});
 
 
 

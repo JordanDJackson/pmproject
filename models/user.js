@@ -20,6 +20,9 @@ const UserSchema = mongoose.Schema({
   },
   sortPref: {
     type: String
+  },
+  aOrd: {
+    type: Number
   }
 })
 

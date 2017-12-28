@@ -103,6 +103,8 @@ var numOfCards = 10;
 
 // get request for app home page
 app.get('/', function (req, res) {
+  res.render('index');
+  /*
     var totalCalcsInDB = 0;
 
             Calc.find({}, function(err,totalCalcs){

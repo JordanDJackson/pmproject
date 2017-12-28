@@ -107,7 +107,7 @@ router.post('/add/fease', function (req, res) { // ensureAuthenticated,
       } else {
         console.log('Saved to Mongo!');
         req.flash('success', 'Calculation Added')
-        res.redirect('/')
+        res.redirect('/users/home')
       }
     })
   }

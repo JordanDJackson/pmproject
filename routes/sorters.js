@@ -7,20 +7,16 @@ let User = require('../models/user')
 let Sort = require('../models/sorter')
 let Calc = require('../models/calc')
 router.get('/highfirst', function (req, res) {
-  Calc.find({}).
-    limit(12).
-    sort({total: -1}).
-    exec(function (err, calcs) {
-      if (err) {
-        console.log(err)
-      } else {
-        res.render('index', {
-          title: 'Calculations',
-          calcs: calcs
-        })
+    let query = {};
+    query["_id"] = req.user["_id"];
+    User.findOneAndUpdate(query, {$set: {sortPref: "total", aOrd: -1 }},{new: true}, function(err, doc){
+      if(err){
+        throw err;
       }
+      console.log(doc);
+    })
+    res.redirect('users/home');
 
-    });
 })
 router.get('/lowfirst', function (req, res) {
 
@@ -29,13 +25,13 @@ router.get('/lowfirst', function (req, res) {
   //console.log(req.user);
     let query = {};
     query["_id"] = req.user["_id"];
-    User.findOneAndUpdate(query, {$set: {sortPref: "total"}},{new: true}, function(err, doc){
+    User.findOneAndUpdate(query, {$set: {sortPref: "total", aOrd: 1 }},{new: true}, function(err, doc){
       if(err){
         throw err;
       }
       console.log(doc);
     })
-    res.redirect('/');
+    res.redirect('/users/home');
   /*
   Calc.find({}).
     limit(12).
@@ -53,40 +49,29 @@ router.get('/lowfirst', function (req, res) {
     });
     */
 })
-
 router.get('/atoz', function (req, res) {
-  Calc.find({}).
-    limit(12).
-    sort({title: 1}).
-    exec(function (err, calcs) {
-      if (err) {
-        console.log(err)
-      } else {
-        res.render('index', {
-          title: 'Calculations',
-          calcs: calcs
-        })
+    let query = {};
+    query["_id"] = req.user["_id"];
+    User.findOneAndUpdate(query, {$set: {sortPref: "title", aOrd: 1 }},{new: true}, function(err, doc){
+      if(err){
+        throw err;
       }
-
-    });
+      console.log(doc);
+    })
+    res.redirect('/users/home');
 })
-
 router.get('/ztoa', function (req, res) {
-  Calc.find({}).
-    limit(12).
-    sort({title: -1}).
-    exec(function (err, calcs) {
-      if (err) {
-        console.log(err)
-      } else {
-        res.render('index', {
-          title: 'Calculations',
-          calcs: calcs
-        })
+    let query = {};
+    query["_id"] = req.user["_id"];
+    User.findOneAndUpdate(query, {$set: {sortPref: "title", aOrd: -1 }},{new: true}, function(err, doc){
+      if(err){
+        throw err;
       }
-
-    });
+      console.log(doc);
+    })
+    res.redirect('/users/home');
 })
+
 /*
 router.get('/lowfirst', function (req, res) {
     var sor = new Sort();

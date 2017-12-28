@@ -1,0 +1,44 @@
+Calc.find({}).
+  limit(12).
+  sort({total: -1}).
+  exec(function (err, calcs) {
+    if (err) {
+      console.log(err)
+    } else {
+      res.render('index', {
+        title: 'Calculations',
+        calcs: calcs
+      })
+    }
+
+  });
+
+  Calc.find({}).
+    limit(12).
+    sort({title: 1}).
+    exec(function (err, calcs) {
+      if (err) {
+        console.log(err)
+      } else {
+        res.render('index', {
+          title: 'Calculations',
+          calcs: calcs
+        })
+      }
+
+    });
+
+    Calc.find({}).
+      limit(12).
+      sort({title: -1}).
+      exec(function (err, calcs) {
+        if (err) {
+          console.log(err)
+        } else {
+          res.render('index', {
+            title: 'Calculations',
+            calcs: calcs
+          })
+        }
+
+      });

@@ -6,6 +6,11 @@ const bcrypt = require('bcryptjs')
 const passport = require('passport')
 // bring in models to use with mongoose
 let User = require('../models/user')
+
+let Article = require('../models/article');
+let Calc = require('../models/calc');
+let Sort = require('../models/sorter');
+
 // render registeration form
 router.get('/register', function (req, res) {
   res.render('register')
@@ -85,10 +90,95 @@ router.post('/register', function (req, res) {
 router.get('/login', function (req, res) {
   res.render('login')
 })
+//take user to home page
+router.get('/home', function (req, res) {
+    var numOfCards = 12;
+    var totalCalcsInDB = 0;
+    var sort = {};
+    var query = {};
+    if(req.user.sortPref == 'default') {
+      sort['title'] = 1;
+    } else {
+      sort[req.user.sortPref] = req.user.aOrd;
+    }
+/*
+db.items.find( { 'colors' :
+                     { $elemMatch :
+                         { $regex : 'blue', $options : 'i' }
+                     }
+               })
+               console.log(req.user);
+               console.log(req.user._id);
+               console.log("It should be sorted by this ------->   " + req.user.sortPref);
+               console.log("It should be sorted by this ------->   " + req.user.aOrd);
+*/
+          Calc.find({}, function(err,totalCalcs){
+            if(err) throw err;
+            totalCalcsInDB = totalCalcs.length;
+          //})
+
+
+                  Calc.find({}).
+                    limit(numOfCards).
+                    sort(sort).
+                    exec(function (err, calcs) {
+                      if (err) {
+                        console.log(err)
+                      } else {
+                        res.render('home', {
+                          title: 'Calculations',
+                          calcs: calcs,
+                          numOfCalcs: totalCalcsInDB
+                        })
+                      }
+
+                    //end of thrid req
+                    });
+
+
+            //end of first mongoose req
+            })
+})
+//custom searches
+router.get('/home/:name', function (req, res) {
+    var numOfCards = 12;
+    var totalCalcsInDB = 0;
+    var sort = {};
+    var query = {};
+    if(req.user.sortPref == 'default') {
+      sort['title'] = 1;
+    } else {
+      sort[req.user.sortPref] = req.user.aOrd;
+    }
+    //console.log(req.params.name);
+    query['lowerName'] = req.params.name.toLowerCase();
+          Calc.find(query, function(err,totalCalcs){
+            if(err) throw err;
+            totalCalcsInDB = totalCalcs.length;
+
+                  Calc.find(query).
+                    limit(numOfCards).
+                    sort(sort).
+                    exec(function (err, calcs) {
+                      if (err) {
+                        console.log(err)
+                      } else {
+                        res.render('home', {
+                          title: 'Calculations',
+                          calcs: calcs,
+                          numOfCalcs: totalCalcsInDB
+                        })
+                      }
+
+                    //end of thrid req
+                    });
+            //end of first mongoose req
+            })
+})
 // login process
 router.post('/login', function (req, res, next) {
   passport.authenticate('local', {
-    successRedirect: '/',
+    successRedirect: '/users/home',
     failureRedirect: '/users/login',
     failureFlash: true
   })(req, res, next)
