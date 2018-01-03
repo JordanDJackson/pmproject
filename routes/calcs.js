@@ -57,9 +57,10 @@ router.post('/add/fease', function (req, res) { // ensureAuthenticated,
     calc.whattype = 'Feasibility';
     var algoRes = fease(req.body.q1,req.body.q2,req.body.q3,req.body.q4,req.body.q5,req.body.q6,req.body.q8);
     calc.total = algoRes[0];
-    console.log(algoRes[0]);
     calc.topfaults = algoRes[1];
-    console.log(algoRes[1]);
+    //calc.dateCreated = new Date();
+    calc.oldScores = [];
+
     const options = {
       template: {
         filePath: './docxtempt/fease.docx',
@@ -150,11 +151,34 @@ router.get('/edit/:id', function(req,res) {
 
 router.post('/edit/:id',function(req,res) {
   console.log("post route hit!!!!");
+
+  var query2 = {_id:req.params.id};
+  Calc.find(query2, function(err,doc){
+          console.log(doc[0].oldScores);
+          var old = [doc[0].total,doc[0].topfaults];
+          //doc[0].oldScores.push(old);
+          var updateOb = {};
+          updateOb['oldScores'] = doc[0].oldScores.push(old);
+          console.log(doc[0].oldScores);
+
+          Calc.findOneAndUpdate(query2,updateOb,{new:true}, function(err, doc2) {
+            if(err) throw err;
+
+            console.log(doc2);
+
+          })
+          
+  })
+
+
   var calc = {};
   calc.title = req.body.title
   // calc.author = req.user._id;
   //calc.madeby = req.user.username;
   // calc.madeat = moment().strftime("%m/%d/%y %I:%M %p");
+
+  /// old wayyyyyy
+  /*
     calc.notes = req.body.notes
     calc.q1 = req.body.q1
     calc.q2 = req.body.q2
@@ -167,12 +191,33 @@ router.post('/edit/:id',function(req,res) {
     calc.whattype = 'Feasibility'
     calc.total = fease(req.body.q1,req.body.q2,req.body.q3,req.body.q4,req.body.q5,req.body.q6,req.body.q8);
     var query = {_id:req.params.id};
+
+*/
+/// new wayyyyyyy
+    //calc.oldScores = [];
+    calc.notes = req.body.notes
+    calc.q1 = req.body.q1
+    calc.q2 = req.body.q2
+    calc.q3 = req.body.q3
+    calc.q4 = req.body.q4
+    calc.q5 = req.body.q5
+    calc.q6 = req.body.q6
+    calc.q7 = req.body.q7
+    calc.q8 = req.body.q8
+    calc.madeby = req.user.username;
+    calc.whattype = 'Feasibility';
+    var algoRes = fease(req.body.q1,req.body.q2,req.body.q3,req.body.q4,req.body.q5,req.body.q6,req.body.q8);
+    calc.total = algoRes[0];
+    calc.topfaults = algoRes[1];
+    //calc.dateCreated = new Date();
+    var query = {_id:req.params.id};
+
     Calc.update(query,calc, function(err){
       if(err) {
         console.log(err);
       } else {
         req.flash('success','Feasibility calculation updated');
-        res.redirect("/");
+        res.redirect("/users/home");
       }
     });
 

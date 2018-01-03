@@ -1,5 +1,6 @@
 
 module.exports = function fease(q1,q2,q3,q4,q5,q6,q8) {
+/*
     var faults = {
         "Workflow around the problem":0,
         "Outside the scope/authority of the problem owner":0,
@@ -9,6 +10,8 @@ module.exports = function fease(q1,q2,q3,q4,q5,q6,q8) {
         "Problem // Perception alignment":0,
         "Confidence level":0,
     };
+    */
+    var faults = {};
 
       var total = 100;
       switch (q1) {

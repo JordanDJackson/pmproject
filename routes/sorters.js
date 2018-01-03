@@ -15,7 +15,7 @@ router.get('/highfirst', function (req, res) {
       }
       console.log(doc);
     })
-    res.redirect('users/home');
+    res.redirect('/users/home');
 
 })
 router.get('/lowfirst', function (req, res) {

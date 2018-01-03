@@ -95,6 +95,12 @@ let calcSchema = mongoose.Schema({
   },
   lowerName: {
     type: String
+  },
+  dateCreated: {
+    type: Date
+  },
+  oldScores: {
+    type: Array
   }
 })
 

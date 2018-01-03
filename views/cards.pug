@@ -13,7 +13,8 @@ div.card-deck.container
               p.badge.badge-danger= 'Score: ' +calc.total
             else if calc.total == undefined
               p.badge.badge-secondary= 'Score: No score found'  
-            p= 'Type: ' + calc.whattype        
+            p
+              strong= 'Type: ' + calc.whattype     
           div.card-body
             //start of fault button
             if calc.topfaults.length >= 1 
@@ -30,13 +31,13 @@ div.card-deck.container
                   //end of fault button
             p.card-text= calc.notes
             hr
-            div.btn-group(role="group" aria-label="Basic example")
-              a.btn.btn-primary.text-white(href='/calcs/download/'+ calc._id data-id=calc._id) Download
-              a.btn.btn-secondary.text-white(href='/calcs/edit/'+ calc._id data-id=calc._id) Edit
-              a.btn.btn-dark.text-white.calcdelete(data-id=calc._id) Delete
+            div.btn-group.row.mx-auto(role="group" aria-label="Basic example")
+              a.btn.btn-primary.text-white.col-md-5(href='/calcs/download/'+ calc._id data-id=calc._id) Download
+              a.btn.btn-secondary.text-white.col-md-3(href='/calcs/edit/'+ calc._id data-id=calc._id) Edit
+              a.btn.btn-dark.text-white.calcdelete.col-md-4(data-id=calc._id) Delete
           div.card-footer
             div.inline-block
-              h6.card-text=  'Created by ' +  calc.madeby
+              h6.card-text=  'Created by ' +  calc.madeby 
 div.card-deck.container
   each calc, i in calcs
     if i <= 5 && i > 2
@@ -52,7 +53,8 @@ div.card-deck.container
               p.badge.badge-danger= 'Score: ' +calc.total
             else if calc.total == undefined
               p.badge.badge-secondary= 'Score: No score found'  
-            p= 'Type: ' + calc.whattype        
+            p
+              strong= 'Type: ' + calc.whattype           
           div.card-body
             //start of fault button
             if calc.topfaults.length >= 1
@@ -69,10 +71,10 @@ div.card-deck.container
                   //end of fault button
             p.card-text= calc.notes
             hr
-            div.btn-group(role="group" aria-label="Basic example")
-              a.btn.btn-primary.text-white(href='/calcs/download/'+ calc._id data-id=calc._id) Download
-              a.btn.btn-secondary.text-white(href='/calcs/edit/'+ calc._id data-id=calc._id) Edit
-              a.btn.btn-dark.text-white.calcdelete(data-id=calc._id) Delete
+            div.btn-group.row.mx-auto(role="group" aria-label="Basic example")
+              a.btn.btn-primary.text-white.col-md-5(href='/calcs/download/'+ calc._id data-id=calc._id) Download
+              a.btn.btn-secondary.text-white.col-md-3(href='/calcs/edit/'+ calc._id data-id=calc._id) Edit
+              a.btn.btn-dark.text-white.calcdelete.col-md-4(data-id=calc._id) Delete
           div.card-footer
             div.inline-block
               h6.card-text=  'Created by ' +  calc.madeby                    
@@ -91,7 +93,8 @@ div.card-deck.container
               p.badge.badge-danger= 'Score: ' +calc.total
             else if calc.total == undefined
               p.badge.badge-secondary= 'Score: No score found'  
-            p= 'Type: ' + calc.whattype        
+            p
+              strong= 'Type: ' + calc.whattype           
           div.card-body
             //start of fault button
             if calc.topfaults.length >= 1
@@ -108,10 +111,10 @@ div.card-deck.container
                   //end of fault button
             p.card-text= calc.notes
             hr
-            div.btn-group(role="group" aria-label="Basic example")
-              a.btn.btn-primary.text-white(href='/calcs/download/'+ calc._id data-id=calc._id) Download
-              a.btn.btn-secondary.text-white(href='/calcs/edit/'+ calc._id data-id=calc._id) Edit
-              a.btn.btn-dark.text-white.calcdelete(data-id=calc._id) Delete
+            div.btn-group.row.mx-auto(role="group" aria-label="Basic example")
+              a.btn.btn-primary.text-white.col-md-5(href='/calcs/download/'+ calc._id data-id=calc._id) Download
+              a.btn.btn-secondary.text-white.col-md-3(href='/calcs/edit/'+ calc._id data-id=calc._id) Edit
+              a.btn.btn-dark.text-white.calcdelete.col-md-4(data-id=calc._id) Delete
           div.card-footer
             div.inline-block
               h6.card-text=  'Created by ' +  calc.madeby
@@ -130,7 +133,8 @@ div.card-deck.container
               p.badge.badge-danger= 'Score: ' +calc.total
             else if calc.total == undefined
               p.badge.badge-secondary= 'Score: No score found'  
-            p= 'Type: ' + calc.whattype        
+            p
+              strong= 'Type: ' + calc.whattype          
           div.card-body
             //start of fault button
             if calc.topfaults.length >= 1
@@ -147,10 +151,10 @@ div.card-deck.container
                   //end of fault button
             p.card-text= calc.notes
             hr
-            div.btn-group(role="group" aria-label="Basic example")
-              a.btn.btn-primary.text-white(href='/calcs/download/'+ calc._id data-id=calc._id) Download
-              a.btn.btn-secondary.text-white(href='/calcs/edit/'+ calc._id data-id=calc._id) Edit
-              a.btn.btn-dark.text-white.calcdelete(data-id=calc._id) Delete
+            div.btn-group.row.mx-auto(role="group" aria-label="Basic example")
+              a.btn.btn-primary.text-white.col-md-5(href='/calcs/download/'+ calc._id data-id=calc._id) Download
+              a.btn.btn-secondary.text-white.col-md-3(href='/calcs/edit/'+ calc._id data-id=calc._id) Edit
+              a.btn.btn-dark.text-white.calcdelete.col-md-4(data-id=calc._id) Delete
           div.card-footer
             div.inline-block
               h6.card-text=  'Created by ' +  calc.madeby

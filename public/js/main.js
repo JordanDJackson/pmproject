@@ -113,10 +113,20 @@ $('#searchbyco').keyup(function(e) {
     }
 
 });
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+
+
+$('#searchbyco').on('focus', function () {
+  $('input').tooltip('hide');
+})
 
 
 
 
 
 
+
+// END OF JQUERY
 })
