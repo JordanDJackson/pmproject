@@ -6,7 +6,7 @@ div.modal.fade(id="feaseModal" tabindex="-1" role="dialog" aria-labelledby="exam
         button.close(type="button" data-dismiss="modal" aria-label="Close")
           span(aria-hidden="true") &times;
       div.modal-body
-        form(method='post', action='/calcs/add/desvias')
+        form(method='post', action='/calcs/add/fease')
           div.form-group
             label.col-form-label Title (Company name)
             input.form-control(type="text" name="title")
@@ -22,171 +22,79 @@ div.modal.fade(id="feaseModal" tabindex="-1" role="dialog" aria-labelledby="exam
           hr
           // start unique questions here!!  
           div.form-group
-            h5 Viability (mission budget/cost, achievement/impact factor)
+            h5 Feasibility (Technical Vetters) 
             hr
-            h6 Key Resources
-            label.col-form-label 1. Does the problem owner have authority over problem scope? 
+            h6 Key Activity
+            label.col-form-label 1. Was this written with a solution in mind?
               select.form-control(name="q1")
                 option Select an option
                 option Yes
                 option No
           div.form-group
-            label.col-form-label 2. Does the problem owner have subject knowledge? 
+            label.col-form-label 2. Within 10 minutes can you brainstorm at least 2 different potential routes towards a useful solution?  
               select.form-control(name="q2")
                 option Select an option
                 option Yes
                 option No
           div.form-group
-            label.col-form-label 3. Does problem owner have a relevant background?
+            label.col-form-label 3. Is there a well defined scope?
               select.form-control(name="q3")
                 option Select an option
                 option Yes
                 option No
           div.form-group
-            label.col-form-label 4. How much time does the problem owner have left in their current role? (Months)
+            label.col-form-label 4. Can a MVP be conceptualized?
               select.form-control(name="q4")
-                option Select an option
-                option 6 or Less
-                option Between 6 and 12
-                option Between 12 and 24
-                option 24+
-          div.form-group
-            label.col-form-label 5. Is the success of this project directly tied to the performance of the problem owners job? 
-              select.form-control(name="q5")
                 option Select an option
                 option Yes
                 option No
-            hr
-            h6 Buy-in Support      
           div.form-group
-            label.col-form-label 6. Has a senior leader been identified? 
+            label.col-form-label 5. Could there be tangible progress made in 3 months?  
+              select.form-control(name="q5")
+                option Select an option
+                option Yes
+                option No    
+          div.form-group
+            label.col-form-label 6. Can this problem be broken down into concrete steps that are more digestible?  
               select.form-control(name="q6")
                 option Select an option
                 option Yes
                 option No      
+            hr         
+            h6 If a H4D University (Leave blank if not a university)                              
           div.form-group
-            label.col-form-label 7. Does a senior leader believe this is a problem worth solving?  
+            label.col-form-label 7. Would a university team have access to the resources to tackle such a problem?   
               select.form-control(name="q7")
                 option Select an option
                 option Yes
-                option No                       
+                option No                
+            hr        
+            h6 Technical Questions (Leave blank if non-technical)        
           div.form-group
-            label.col-form-label 8. How much time does she/he have left in their current role?   
+            label.col-form-label 8. Compatible with current system?   
               select.form-control(name="q8")
                 option Select an option
-                option 6 or Less
-                option Between 6 and 12
-                option Between 12 and 24
-                option 24+     
+                option Yes
+                option No   
           div.form-group
-            label.col-form-label 9. Does the senior leader have a significant amount of authority in the organization (not just one or two levels above problem owner)?
+            label.col-form-label 9. Adaptable to classified enviornment? 
               select.form-control(name="q9")
                 option Select an option
                 option Yes
-                option No
-            hr         
-            h6 Critical for Organization     
+                option No   
           div.form-group
-            label.col-form-label 10. Is the success of this project directly related to a strategic priority?  
+            label.col-form-label 10. Technical readiness: 
               select.form-control(name="q10")
                 option Select an option
-                option Yes
-                option No       
-          div.form-group
-            label.col-form-label 11. Is this project an agency priority?   
-              select.form-control(name="q11")
-                option Select an option
-                option Yes
-                option No        
-          div.form-group
-            label.col-form-label 12. Is funding currently available or planned for this project?
-              select.form-control(name="q12")
-                option Select an option
-                option Yes
-                option No
-            hr
-            h5 Desirability (value proposition, buy in-support, beneficiary, deployment)
-            hr
-            h6 Beneficiary                
-          div.form-group
-            label.col-form-label 13. Have you identified a beneficiary?  
-              select.form-control(name="q13")
-                option Select an option
-                option Yes
-                option No
-          div.form-group
-            label.col-form-label 14. Do you have direct access to a beneficiary?  
-              select.form-control(name="q14")
-                option Select an option
-                option Yes
-                option Not Directly
-                option No
-            hr
-            h6 Basic Need
-          div.form-group
-            label.col-form-label 15. Has the problem owner identified a specific need? 
-              select.form-control(name="q15")
-                option Select an option
-                option Yes
-                option No
-          div.form-group
-            label.col-form-label 16. Does this problem have an inspiring use-case?  
-              select.form-control(name="q16")
-                option Select an option
-                option Yes
-                option No
-          div.form-group
-            label.col-form-label 17. Are there actually many problems within this individual problem?
-              select.form-control(name="q17")
-                option Select an option
-                option Yes
-                option No
-          div.form-group
-            label.col-form-label 18. Is there ongoing research into this problem? 
-              select.form-control(name="q18")
-                option Select an option
-                option Yes
-                option No                
-          div.form-group
-            label.col-form-label 19. Are there similar efforts within your organization to solve this problem?
-              select.form-control(name="q19")
-                option Select an option
-                option Yes
-                option Not Directly
-                option No                
-          div.form-group
-            label.col-form-label 20. Have there been past attempts to solve the problem?
-              select.form-control(name="q20")
-                option Select an option
-                option Yes, with substantial learnings now applied 
-                option Yes, but learning hasn't been applied
-                option No
-            hr                
-            h6 Desired Outcome
-          div.form-group
-            label.col-form-label 21. If they came up with a solution would you be able to implement it? 
-              select.form-control(name="q21")
-                option Select an option
-                option Yes
-                option No
-          div.form-group
-            label.col-form-label 22. Does the organization have the ability to run tests?  
-              select.form-control(name="q22")
-                option Select an option
-                option Yes
-                option No
-          div.form-group
-            label.col-form-label 23. Is a desired outcome defined? 
-              select.form-control(name="q23")
-                option Select an option
-                option Yes
-                option No
-          div.form-group
-            label.col-form-label 24. Is this an incremental change or a disruptive change? (NOTES: disruptive -- 30% of being adopted, 70% impact (vice versa) we want to reward disruptive change) 
-              select.form-control(name="q24")
-                option Select an option
-                option Disruptive
-                option Incremental
+                option Existing GOTS options can solve the problem 
+                option Existing COTS options can solve the problem
+                option Existing startup options may solve the problem…No previous government clients
+                option Existing startup options may solve the problem…No previous enterprise clients
+                option Existing startup options may solve the problem…No public performance data
+                option Exists in DARPA/I-ARPA projects...Contact made with PM 
+                option Exists in DARPA/I-ARPA projects...Contact not made with PM
+                option Only exists in scientific literature...Contact made with PI 
+                option Only exists in scientific literature...Contact not made with PI    
             hr             
           div.modal-footer
             button.btn.btn-secondary(type="button" data-dismiss="modal") Close
