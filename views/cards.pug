@@ -8,7 +8,7 @@ div.card-deck.container
               h5.card-title.col-md-10=  calc.title
               span.badge.badge-secondary.col-md-2= calc.problem 
             if calc.total >= 64.5
-              p.badge.badge-success= 'Score: ' +calc.total + " Percentage: " + calc.percent.toFixed(2) + "%"
+              p.badge.badge-success= 'Score: ' +calc.total + " Percentage: " + calc.percent//.toFixed(2) + "%"
             else if calc.total <= 64 && calc.total >= 43 
               p.badge.badge-warning= 'Score: ' +calc.total + " Percentage: " + calc.percent + "%"  
             else if calc.total < 43
