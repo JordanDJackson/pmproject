@@ -64,3 +64,6 @@ a {
 :-ms-input-placeholder {
    text-align: center;
 }
+.badge {
+  height: 50%;
+}

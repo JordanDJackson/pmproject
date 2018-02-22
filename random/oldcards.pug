@@ -3,16 +3,14 @@ div.card-deck.container
     if i <= 2
       div.col-md-4
         div.card
-          div.card-header    
-            div.row
-              h5.card-title.col-md-10=  calc.title
-              span.badge.badge-secondary.col-md-2= calc.problem 
-            if calc.total >= 64.5
-              p.badge.badge-success= 'Score: ' +calc.total + " Percentage: " + calc.percent.toFixed(2) + "%"
-            else if calc.total <= 64 && calc.total >= 43 
-              p.badge.badge-warning= 'Score: ' +calc.total + " Percentage: " + calc.percent + "%"  
-            else if calc.total < 43
-              p.badge.badge-danger= 'Score: ' +calc.total + " Percentage: " + calc.percent + "%"
+          div.card-header
+            h5.card-title=  calc.title
+            if calc.total >= 75
+              p.badge.badge-success= 'Score: ' +calc.total ;
+            else if calc.total <= 74 && calc.total >= 50 
+              p.badge.badge-warning= 'Score: ' +calc.total ;
+            else if calc.total < 50
+              p.badge.badge-danger= 'Score: ' +calc.total ;
             else if calc.total == undefined
               p.badge.badge-secondary= 'Score: No score found'  
             p
@@ -45,18 +43,16 @@ div.card-deck.container
     if i <= 5 && i > 2
       div.col-md-4
         div.card
-          div.card-header    
-            div.row
-              h5.card-title.col-md-10=  calc.title
-              span.badge.badge-secondary.col-md-2= calc.problem
-            if calc.total >= 64.5
-              p.badge.badge-success= 'Score: ' +calc.total + " Percentage: " + calc.percent.toFixed(2) + "%"
-            else if calc.total <= 64 && calc.total >= 43 
-              p.badge.badge-warning= 'Score: ' +calc.total + " Percentage: " + calc.percent.toFixed(2) + "%"  
-            else if calc.total < 43
-              p.badge.badge-danger= 'Score: ' +calc.total + " Percentage: " + calc.percent.toFixed(2) + "%"
+          div.card-header
+            h5.card-title=  calc.title
+            if calc.total >= 75
+              p.badge.badge-success= 'Score: ' +calc.total
+            else if calc.total <= 74 && calc.total >= 50 
+              p.badge.badge-warning= 'Score: ' +calc.total  
+            else if calc.total < 50
+              p.badge.badge-danger= 'Score: ' +calc.total
             else if calc.total == undefined
-              p.badge.badge-secondary= 'Score: No score found' 
+              p.badge.badge-secondary= 'Score: No score found'  
             p
               strong= 'Type: ' + calc.whattype           
           div.card-body
@@ -87,18 +83,16 @@ div.card-deck.container
     if i <= 8 && i > 5
       div.col-md-4
         div.card
-          div.card-header    
-            div.row
-              h5.card-title.col-md-10=  calc.title
-              span.badge.badge-secondary.col-md-2= calc.problem
-            if calc.total >= 64.5
-              p.badge.badge-success= 'Score: ' +calc.total + " Percentage: " + calc.percent.toFixed(2) + "%"
-            else if calc.total <= 64 && calc.total >= 43 
-              p.badge.badge-warning= 'Score: ' +calc.total + " Percentage: " + calc.percent.toFixed(2) + "%"  
-            else if calc.total < 43
-              p.badge.badge-danger= 'Score: ' +calc.total + " Percentage: " + calc.percent.toFixed(2) + "%"
+          div.card-header
+            h5.card-title=  calc.title
+            if calc.total >= 75
+              p.badge.badge-success= 'Score: ' +calc.total
+            else if calc.total <= 74 && calc.total >= 50 
+              p.badge.badge-warning= 'Score: ' +calc.total  
+            else if calc.total < 50
+              p.badge.badge-danger= 'Score: ' +calc.total
             else if calc.total == undefined
-              p.badge.badge-secondary= 'Score: No score found' 
+              p.badge.badge-secondary= 'Score: No score found'  
             p
               strong= 'Type: ' + calc.whattype           
           div.card-body
@@ -129,18 +123,16 @@ div.card-deck.container
     if i <= 11 && i > 8
       div.col-md-4
         div.card
-          div.card-header    
-            div.row
-              h5.card-title.col-md-10=  calc.title
-              span.badge.badge-secondary.col-md-2= calc.problem
-            if calc.total >= 64.5
-              p.badge.badge-success= 'Score: ' +calc.total + " Percentage: " + calc.percent.toFixed(2) + "%"
-            else if calc.total <= 64 && calc.total >= 43 
-              p.badge.badge-warning= 'Score: ' +calc.total + " Percentage: " + calc.percent.toFixed(2) + "%"  
-            else if calc.total < 43
-              p.badge.badge-danger= 'Score: ' +calc.total + " Percentage: " + calc.percent.toFixed(2) + "%"
+          div.card-header
+            h5.card-title=  calc.title
+            if calc.total >= 75
+              p.badge.badge-success= 'Score: ' +calc.total
+            else if calc.total <= 74 && calc.total >= 50 
+              p.badge.badge-warning= 'Score: ' +calc.total  
+            else if calc.total < 50
+              p.badge.badge-danger= 'Score: ' +calc.total
             else if calc.total == undefined
-              p.badge.badge-secondary= 'Score: No score found'   
+              p.badge.badge-secondary= 'Score: No score found'  
             p
               strong= 'Type: ' + calc.whattype          
           div.card-body

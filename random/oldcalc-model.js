@@ -72,15 +72,6 @@ let calcSchema = mongoose.Schema({
   q21: {
     type: String
   },
-  q22: {
-    type: String
-  },
-  q23: {
-    type: String
-  },
-  q24: {
-    type: String
-  },
   author: {
     type: String
   },
@@ -110,12 +101,6 @@ let calcSchema = mongoose.Schema({
   },
   oldScores: {
     type: Array
-  },
-  percent: {
-    type: Number
-  },
-  problem: {
-    type: String
   }
 })
 

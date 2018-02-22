@@ -4,8 +4,7 @@ const router = express.Router()
 //const moment = require(moment-datetime);
 const fs = require('fs');
 const generateDocx = require('generate-docx');
-//const fease = require('../algos/feasealgo.js');
-const desvia = require('../algos/desvia.js');
+const fease = require('../algos/feasealgo.js');
 // bring in models
 let Article = require('../models/article')
 let User = require('../models/user')
@@ -29,17 +28,11 @@ router.delete('/:id', function (req, res) {
 
 
 })
-router.post('/add/desvias', function (req, res) { // ensureAuthenticated,
+router.post('/add/fease', function (req, res) { // ensureAuthenticated,
     // req.checkBody('title', 'Title is required').notEmpty();
     // req.checkBody('author', 'Author is required').notEmpty();
     // req.checkBody('body', 'Body is required').notEmpty();
     // Errors
-
-
-
-
- console.log("post hit!!!!!!!!!!!!!!!!");
- console.log(req.body);
   let errors = req.validationErrors()
   if (errors) {
     res.render('index', {
@@ -51,7 +44,6 @@ router.post('/add/desvias', function (req, res) { // ensureAuthenticated,
     // calc.author = req.user._id;
     //calc.madeby = req.user.username;
     // calc.madeat = moment().strftime("%m/%d/%y %I:%M %p");
-    calc.problem = req.body.problem
     calc.notes = req.body.notes
     calc.q1 = req.body.q1
     calc.q2 = req.body.q2
@@ -61,35 +53,13 @@ router.post('/add/desvias', function (req, res) { // ensureAuthenticated,
     calc.q6 = req.body.q6
     calc.q7 = req.body.q7
     calc.q8 = req.body.q8
-    calc.q9 = req.body.q9
-    calc.q10 = req.body.q10
-    calc.q11 = req.body.q11
-    calc.q12 = req.body.q12
-    calc.q13 = req.body.q13
-    calc.q14 = req.body.q14
-    calc.q15 = req.body.q15
-    calc.q16 = req.body.q16
-    calc.q17 = req.body.q17
-    calc.q18 = req.body.q18
-    calc.q19 = req.body.q19
-    calc.q20 = req.body.q20
-    calc.q21 = req.body.q21
-    calc.q22 = req.body.q22
-    calc.q23 = req.body.q23
-    calc.q24 = req.body.q24
     calc.madeby = req.user.username
-    calc.whattype = 'D&V';
-    var algoRes = desvia(req.body.q1,req.body.q2,req.body.q3,req.body.q4,req.body.q5,req.body.q6,req.body.q7,req.body.q8,
-      req.body.q9,req.body.q10,req.body.q11,req.body.q12,req.body.q13,req.body.q14,req.body.q15,req.body.q16, req.body.q17,req.body.q18,
-      req.body.q19,req.body.q20,req.body.q21,req.body.q22,req.body.q23,req.body.q24);
+    calc.whattype = 'Feasibility';
+    var algoRes = fease(req.body.q1,req.body.q2,req.body.q3,req.body.q4,req.body.q5,req.body.q6,req.body.q8);
     calc.total = algoRes[0];
     calc.topfaults = algoRes[1];
-    calc.percent = algoRes[2];
     //calc.dateCreated = new Date();
     calc.oldScores = [];
-
-
-
 
     const options = {
       template: {
@@ -132,15 +102,6 @@ router.post('/add/desvias', function (req, res) { // ensureAuthenticated,
             */
         }
     })
-
-
-
-
-
-
-
-
-
   calc.save(function (err) {
       if (err) {
         console.log(err)
@@ -150,10 +111,6 @@ router.post('/add/desvias', function (req, res) { // ensureAuthenticated,
         res.redirect('/users/home')
       }
     })
-
-
-
-
   }
 })
 
@@ -210,10 +167,34 @@ router.post('/edit/:id',function(req,res) {
             console.log(doc2);
 
           })
-
+          
   })
-    var calc = {};
-    calc.title = req.body.title
+
+
+  var calc = {};
+  calc.title = req.body.title
+  // calc.author = req.user._id;
+  //calc.madeby = req.user.username;
+  // calc.madeat = moment().strftime("%m/%d/%y %I:%M %p");
+
+  /// old wayyyyyy
+  /*
+    calc.notes = req.body.notes
+    calc.q1 = req.body.q1
+    calc.q2 = req.body.q2
+    calc.q3 = req.body.q3
+    calc.q4 = req.body.q4
+    calc.q5 = req.body.q5
+    calc.q6 = req.body.q6
+    calc.q7 = req.body.q7
+    calc.q8 = req.body.q8
+    calc.whattype = 'Feasibility'
+    calc.total = fease(req.body.q1,req.body.q2,req.body.q3,req.body.q4,req.body.q5,req.body.q6,req.body.q8);
+    var query = {_id:req.params.id};
+
+*/
+/// new wayyyyyyy
+    //calc.oldScores = [];
     calc.notes = req.body.notes
     calc.q1 = req.body.q1
     calc.q2 = req.body.q2
@@ -224,7 +205,7 @@ router.post('/edit/:id',function(req,res) {
     calc.q7 = req.body.q7
     calc.q8 = req.body.q8
     calc.madeby = req.user.username;
-    calc.whattype = 'Desirability & Viability';
+    calc.whattype = 'Feasibility';
     var algoRes = fease(req.body.q1,req.body.q2,req.body.q3,req.body.q4,req.body.q5,req.body.q6,req.body.q8);
     calc.total = algoRes[0];
     calc.topfaults = algoRes[1];
