@@ -113,6 +113,46 @@ $('#searchbyco').keyup(function(e) {
     }
 
 });
+// sep sprints and h4d buttons
+$('#sortboth').on('click', function () {
+  $.ajax({
+    type: 'GET',
+    url: '/sorts/both',
+    success: function (response) {
+      window.location.href = '/users/home'
+    },
+    error: function (err) {
+      console.log(err)
+    }
+  })
+})
+$('#sortsprints').on('click', function () {
+
+  $.ajax({
+    type: 'GET',
+    url: '/sorts/sprints',
+    success: function (response) {
+      window.location.href = '/users/home'
+    },
+    error: function (err) {
+      console.log(err)
+    }
+  })
+})
+$('#sorth4d').on('click', function () {
+  $.ajax({
+    type: 'GET',
+    url: '/sorts/h4d',
+    success: function (response) {
+      window.location.href = '/users/home'
+    },
+    error: function (err) {
+      console.log(err)
+    }
+  })
+})
+
+
 $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 })

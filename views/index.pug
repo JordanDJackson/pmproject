@@ -1,63 +1,6 @@
 extends layout
 
 block content
-  //
-    if user
-      div.row.container
-        nav.col.my-auto
-          div.btn-group(role='group')
-            div.btn-group(role='group')
-                button.btn-info.btn.btn-lg.dropdown-toggle(type="button" id="sortbut" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") Sort
-                div.dropdown-menu(aria-labelledby="dropdownMenuButton")
-                  a.dropdown-item(href="/sorts/newies") Date (Lastest First)
-                  a.dropdown-item(href="/sorts/oldies") Date (Oldest First)
-                  a.dropdown-item(href="/sorts/highfirst") Score (Highest First)
-                  a.dropdown-item(href="/sorts/lowfirst" id="sortlowfirst") Score (Lowest First)
-                  a.dropdown-item(href="/sorts/atoz") Name (A to Z)
-                  a.dropdown-item(href="/sorts/ztoa") Name (Z to A)
-            button.btn.btn-dark= "Entries: " + numOfCalcs
-            div.btn-group(role='group')
-                button.btn-info.btn.btn-lg.dropdown-toggle(type="button" id="typesortbut" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") Type
-                div.dropdown-menu(aria-labelledby="dropdownMenuButton")
-                  a.dropdown-item(href="/sorts/all") All
-                  a.dropdown-item(href="/sorts/desire") Desirability
-                  a.dropdown-item(href="/sorts/fease") Feasibility
-                  a.dropdown-item(href="/sorts/via") Viability
-                  a.dropdown-item(href="/sorts/inno") Innovation
-        nav.col.mx-auto(aria-label="Page navigation example" class="pagethingy")
-          ul.pagination.justify-content-center.pagination-lg
-            li.page-item
-              if page = 1
-                a.page-link.text-dark.disabled(href="#" tabindex="-1") Previous
-              else if page > 1
-                a.page-link.text-dark(href="#" tabindex="-1") Previous
-            li.page-item
-              a.page-link.text-dark(href="/") 1
-            li.page-item
-              a.page-link.text-dark(href="/") 2
-            li.page-item
-              a.page-link.text-dark(href="/") 3
-            li.page-item
-              a.page-link.text-dark(href="#") Next
-        div.col
-          h1 Hello
-        br
-      include cards.pug    
-      div.row.container
-        nav.col
-        nav.col.mx-auto(aria-label="Page navigation example" class="pagethingy")
-          ul.pagination.justify-content-center.pagination-lg
-            li.page-item
-              a.page-link.text-dark(href="#" tabindex="-1") Previous
-            li.page-item
-              a.page-link.text-dark(href="/") 1
-            li.page-item
-              a.page-link.text-dark(href="/") 2
-            li.page-item
-              a.page-link.text-dark(href="/") 3
-            li.page-item
-              a.page-link.text-dark(href="#") Next
-        div.col
   if !user
     div.jumbotron
       div.container

@@ -91,6 +91,7 @@ router.get('/login', function (req, res) {
   res.render('login')
 })
 //take user to home page
+// aOrd STANDS FOR ASCENDING OR DESCENDING
 router.get('/home', function (req, res) {
     var numOfCards = 12;
     var totalCalcsInDB = 0;
@@ -100,6 +101,12 @@ router.get('/home', function (req, res) {
       sort['title'] = 1;
     } else {
       sort[req.user.sortPref] = req.user.aOrd;
+    }
+    var typeOfSprint = {};
+    if(req.user.sprintType == 'Both') {
+
+    } else {
+      typeOfSprint["problem"] = req.user.sprintType;
     }
 /*
 db.items.find( { 'colors' :
@@ -112,13 +119,13 @@ db.items.find( { 'colors' :
                console.log("It should be sorted by this ------->   " + req.user.sortPref);
                console.log("It should be sorted by this ------->   " + req.user.aOrd);
 */
-          Calc.find({}, function(err,totalCalcs){
+          Calc.find(typeOfSprint, function(err,totalCalcs){
             if(err) throw err;
             totalCalcsInDB = totalCalcs.length;
           //})
 
 
-                  Calc.find({}).
+                  Calc.find(typeOfSprint).
                     limit(numOfCards).
                     sort(sort).
                     exec(function (err, calcs) {

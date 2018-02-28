@@ -23,6 +23,9 @@ const UserSchema = mongoose.Schema({
   },
   aOrd: {
     type: Number
+  },
+  sprintType: {
+    type: String
   }
 })
 

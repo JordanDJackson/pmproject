@@ -49,6 +49,47 @@ router.get('/lowfirst', function (req, res) {
     });
     */
 })
+// sprints and h4d sorts
+router.get('/h4d', function (req, res) {
+  console.log("This should workkkkkk!!!!");
+    let query = {};
+    query["_id"] = req.user["_id"];
+    User.findOneAndUpdate(query, {$set: {sprintType: "H4D", aOrd: 1 }},{new: true}, function(err, doc){
+      if(err){
+        throw err;
+      }
+      console.log(doc);
+    })
+    res.redirect('/users/home');
+})
+router.get('/sprints', function (req, res) {
+    console.log("This should workkkkkk!!!!");
+    let query = {};
+    query["_id"] = req.user["_id"];
+    User.findOneAndUpdate(query, {$set: {sprintType: "Sprint", aOrd: 1 }},{new: true}, function(err, doc){
+      if(err){
+        throw err;
+      }
+      console.log(doc);
+    })
+    res.redirect('/users/home');
+})
+router.get('/both', function (req, res) {
+    console.log("This should workkkkkk!!!!");
+    let query = {};
+    query["_id"] = req.user["_id"];
+    User.findOneAndUpdate(query, {$set: {sprintType: "Both", aOrd: 1 }},{new: true}, function(err, doc){
+      if(err){
+        throw err;
+      }
+      console.log(doc);
+    })
+    res.redirect('/users/home');
+})
+
+
+
+// end sprints
 router.get('/atoz', function (req, res) {
     let query = {};
     query["_id"] = req.user["_id"];

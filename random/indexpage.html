@@ -1,6 +1,4 @@
-extends layout
-
-block content
+//
   if user
     div.row.container
       nav.col.my-auto
@@ -10,22 +8,19 @@ block content
               div.dropdown-menu(aria-labelledby="dropdownMenuButton")
                 a.dropdown-item(href="/sorts/newies") Date (Lastest First)
                 a.dropdown-item(href="/sorts/oldies") Date (Oldest First)
-                a.dropdown-item(href="#" id="sorthighfirst") Score (Highest First) <!--/sorts/highfirst-->
-                a.dropdown-item(href="#" id="sortlowfirst") Score (Lowest First) <!--/sorts/lowfirst-->
-                a.dropdown-item(href="#" id="sorta2z") Name (A to Z) <!--sorts/atoz-->
-                a.dropdown-item(href="#"  id="sortz2a") Name (Z to A) <!--"/sorts/ztoa"-->
+                a.dropdown-item(href="/sorts/highfirst") Score (Highest First)
+                a.dropdown-item(href="/sorts/lowfirst" id="sortlowfirst") Score (Lowest First)
+                a.dropdown-item(href="/sorts/atoz") Name (A to Z)
+                a.dropdown-item(href="/sorts/ztoa") Name (Z to A)
           button.btn.btn-dark= "Entries: " + numOfCalcs
           div.btn-group(role='group')
               button.btn-info.btn.btn-lg.dropdown-toggle(type="button" id="typesortbut" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") Type
               div.dropdown-menu(aria-labelledby="dropdownMenuButton")
-                a.dropdown-item(href="#" id="sortboth") All
-                a.dropdown-item(href="#" id="sortsprints") Sprints
-                a.dropdown-item(href="#" id="sorth4d") H4D
-                //a.dropdown-item(href="/sorts/all") All
-                //a.dropdown-item(href="/sorts/desire") Desirability
-                //a.dropdown-item(href="/sorts/fease") Feasibility
-                //a.dropdown-item(href="/sorts/via") Viability
-                //a.dropdown-item(href="/sorts/inno") Innovation
+                a.dropdown-item(href="/sorts/all") All
+                a.dropdown-item(href="/sorts/desire") Desirability
+                a.dropdown-item(href="/sorts/fease") Feasibility
+                a.dropdown-item(href="/sorts/via") Viability
+                a.dropdown-item(href="/sorts/inno") Innovation
       nav.col.mx-auto(aria-label="Page navigation example" class="pagethingy")
         ul.pagination.justify-content-center.pagination-lg
           li.page-item
@@ -34,22 +29,17 @@ block content
             else if page > 1
               a.page-link.text-dark(href="#" tabindex="-1") Previous
           li.page-item
-            a.page-link.text-dark(href="/" id="idbutton") 1
+            a.page-link.text-dark(href="/") 1
           li.page-item
             a.page-link.text-dark(href="/") 2
           li.page-item
             a.page-link.text-dark(href="/") 3
           li.page-item
             a.page-link.text-dark(href="#") Next
-      nav.col.my-auto
-        div.input-group.mb-3.input-group-lg.my-auto
-          input.form-control(type="text" placeholder="Search By Co." id="searchbyco" data-toggle="tooltip" data-placement="bottom" title="Not Case Sensitive")
-        //
-          form.my-2.my-lg-0
-          input.form-control(type="search" placeholder="Company Name" aria-label="Company")
-          button.btn.btn-outline-success.my-2.my-sm-0(type="submit") Search
+      div.col
+        h1 Hello
       br
-    include cards.pug    
+    include cards.pug
     div.row.container
       nav.col
       nav.col.mx-auto(aria-label="Page navigation example" class="pagethingy")

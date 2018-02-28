@@ -2,17 +2,107 @@ div.modal.fade(id="viaModal" tabindex="-1" role="dialog" aria-labelledby="exampl
   div.modal-dialog(role="document")
     div.modal-content
       div.modal-header
-        h5.modal-title(id="exampleModalLabel") Viability Calculator
+        h5.modal-title(id="exampleModalLabel") Viability Calculator (mission budget/cost, achievement/impact factor)
         button.close(type="button" data-dismiss="modal" aria-label="Close")
           span(aria-hidden="true") &times;
       div.modal-body
-        form
+        form(method='post', action='/calcs/add/desvias')
           div.form-group
-            label.col-form-label(for="recipient-name") Title (Company name)
-            input.form-control(type="text" id="recipient-name")
+            label.col-form-label Title (Company name)
+            input.form-control(type="text" name="title")
           div.form-group
-            label.col-form-label(for="message-text") Message:
-            textarea.form-control(id="message-text")
-      div.modal-footer
-        button.btn.btn-secondary(type="button" data-dismiss="modal") Close
-        button.btn.btn-primary(type="button") Calculate &amp; Save! 
+            label.col-form-label Problem Type
+              select.form-control(name="problem")
+                option Select an option
+                option Sprint
+                option H4D
+          div.form-group
+            label.col-form-label(for="message-text") Notes
+            textarea.form-control(id="message-text" name="notes")
+          hr
+          div.form-group
+            h6 Key Resources
+            label.col-form-label 1. Does the problem owner have authority over problem scope? 
+              select.form-control(name="q1")
+                option Select an option
+                option Yes
+                option No
+          div.form-group
+            label.col-form-label 2. Does the problem owner have subject knowledge? 
+              select.form-control(name="q2")
+                option Select an option
+                option Yes
+                option No
+          div.form-group
+            label.col-form-label 3. Does problem owner have a relevant background?
+              select.form-control(name="q3")
+                option Select an option
+                option Yes
+                option No
+          div.form-group
+            label.col-form-label 4. How much time does the problem owner have left in their current role? (Months)
+              select.form-control(name="q4")
+                option Select an option
+                option 6 or Less
+                option Between 6 and 12
+                option Between 12 and 24
+                option 24+
+          div.form-group
+            label.col-form-label 5. Is the success of this project directly tied to the performance of the problem owners job? 
+              select.form-control(name="q5")
+                option Select an option
+                option Yes
+                option No
+            hr
+            h6 Buy-in Support      
+          div.form-group
+            label.col-form-label 6. Has a senior leader been identified? 
+              select.form-control(name="q6")
+                option Select an option
+                option Yes
+                option No      
+          div.form-group
+            label.col-form-label 7. Does a senior leader believe this is a problem worth solving?  
+              select.form-control(name="q7")
+                option Select an option
+                option Yes
+                option No                       
+          div.form-group
+            label.col-form-label 8. How much time does she/he have left in their current role?   
+              select.form-control(name="q8")
+                option Select an option
+                option 6 or Less
+                option Between 6 and 12
+                option Between 12 and 24
+                option 24+     
+          div.form-group
+            label.col-form-label 9. Does the senior leader have a significant amount of authority in the organization (not just one or two levels above problem owner)?
+              select.form-control(name="q9")
+                option Select an option
+                option Yes
+                option No
+            hr         
+            h6 Critical for Organization     
+          div.form-group
+            label.col-form-label 10. Is the success of this project directly related to a strategic priority?  
+              select.form-control(name="q10")
+                option Select an option
+                option Yes
+                option No       
+          div.form-group
+            label.col-form-label 11. Is this project an agency priority?   
+              select.form-control(name="q11")
+                option Select an option
+                option Yes
+                option No        
+          div.form-group
+            label.col-form-label 12. Is funding currently available or planned for this project?
+              select.form-control(name="q12")
+                option Select an option
+                option Yes
+                option No
+            hr
+            hr             
+          div.modal-footer
+            button.btn.btn-secondary(type="button" data-dismiss="modal") Close
+            button.btn.btn-primary( type='submit') Calculate &amp; Save! 

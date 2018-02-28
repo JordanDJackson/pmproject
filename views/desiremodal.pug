@@ -1,19 +1,106 @@
-// this is where i am going to put the new 86 questions
 div.modal.fade(id="desireModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
   div.modal-dialog(role="document")
     div.modal-content
       div.modal-header
-        h5.modal-title(id="exampleModalLabel") Desirability Calculator
+        h5.modal-title(id="exampleModalLabel") Desirability Calculator (value proposition, buy in-support, beneficiary, deployment)
         button.close(type="button" data-dismiss="modal" aria-label="Close")
           span(aria-hidden="true") &times;
       div.modal-body
-        form
+        form(method='post', action='/calcs/add/desvias')
           div.form-group
-            label.col-form-label(for="recipient-name") Title (Company name)
-            input.form-control(type="text" id="recipient-name")
+            label.col-form-label Title (Company name)
+            input.form-control(type="text" name="title")
           div.form-group
-            label.col-form-label(for="message-text") Message:
-            textarea.form-control(id="message-text")
-      div.modal-footer
-        button.btn.btn-secondary(type="button" data-dismiss="modal") Close
-        button.btn.btn-primary(type="button") Calculate &amp; Save! 
+            label.col-form-label Problem Type
+              select.form-control(name="problem")
+                option Select an option
+                option Sprint
+                option H4D
+          div.form-group
+            label.col-form-label(for="message-text") Notes
+            textarea.form-control(id="message-text" name="notes")
+          hr
+          h6 Beneficiary                
+          div.form-group
+            label.col-form-label 13. Have you identified a beneficiary?  
+              select.form-control(name="q13")
+                option Select an option
+                option Yes
+                option No
+          div.form-group
+            label.col-form-label 14. Do you have direct access to a beneficiary?  
+              select.form-control(name="q14")
+                option Select an option
+                option Yes
+                option Not Directly
+                option No
+            hr
+            h6 Basic Need
+          div.form-group
+            label.col-form-label 15. Has the problem owner identified a specific need? 
+              select.form-control(name="q15")
+                option Select an option
+                option Yes
+                option No
+          div.form-group
+            label.col-form-label 16. Does this problem have an inspiring use-case?  
+              select.form-control(name="q16")
+                option Select an option
+                option Yes
+                option No
+          div.form-group
+            label.col-form-label 17. Are there actually many problems within this individual problem?
+              select.form-control(name="q17")
+                option Select an option
+                option Yes
+                option No
+          div.form-group
+            label.col-form-label 18. Is there ongoing research into this problem? 
+              select.form-control(name="q18")
+                option Select an option
+                option Yes
+                option No                
+          div.form-group
+            label.col-form-label 19. Are there similar efforts within your organization to solve this problem?
+              select.form-control(name="q19")
+                option Select an option
+                option Yes
+                option Not Directly
+                option No                
+          div.form-group
+            label.col-form-label 20. Have there been past attempts to solve the problem?
+              select.form-control(name="q20")
+                option Select an option
+                option Yes, with substantial learnings now applied 
+                option Yes, but learning hasn't been applied
+                option No
+            hr                
+            h6 Desired Outcome
+          div.form-group
+            label.col-form-label 21. If they came up with a solution would you be able to implement it? 
+              select.form-control(name="q21")
+                option Select an option
+                option Yes
+                option No
+          div.form-group
+            label.col-form-label 22. Does the organization have the ability to run tests?  
+              select.form-control(name="q22")
+                option Select an option
+                option Yes
+                option No
+          div.form-group
+            label.col-form-label 23. Is a desired outcome defined? 
+              select.form-control(name="q23")
+                option Select an option
+                option Yes
+                option No
+          div.form-group
+            label.col-form-label 24. Is this an incremental change or a disruptive change? (NOTES: disruptive -- 30% of being adopted, 70% impact (vice versa) we want to reward disruptive change) 
+              select.form-control(name="q24")
+                option Select an option
+                option Disruptive
+                option Incremental
+            hr             
+          div.modal-footer
+            button.btn.btn-secondary(type="button" data-dismiss="modal") Close
+            button.btn.btn-primary( type='submit') Calculate &amp; Save! 
